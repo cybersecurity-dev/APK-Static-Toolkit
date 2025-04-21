@@ -29,3 +29,6 @@ graph TD
 * **Native libraries (lib/):** Directory containing compiled code that is specific to a particular device's processor architecture (e.g., .so files).
 * **Dalvik bytecode (classes.dex):** Contains the compiled Java code of the application, optimized for the Dalvik or ART (Android Runtime) virtual machine.
 * **Resources (res/):** Directory containing the application's resources, such as layouts, drawables (images), strings, and values (colors, dimensions, etc.). These resources are typically compiled into `resources.arsc`.
+<p align="center" href="https://www.android.com/"> 
+<a href="https://www.android.com/"><picture><img width="50%" height="auto" src="./assets/apk.svg" height="175px" alt="APK"/></picture></a>
+</p>
