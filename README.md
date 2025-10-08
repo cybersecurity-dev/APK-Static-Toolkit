@@ -81,3 +81,16 @@ graph TD
 <p align="center" href="https://www.android.com/"> 
 <a href="https://www.android.com/"><picture><img width="50%" height="auto" src="./assets/apk.svg" height="175px" alt="APK"/></picture></a>
 </p>
+
+
+##
+
+### Contributing
+
+[Contributions of any kind welcome, just follow the guidelines](contributing.md)!
+
+### Contributors
+
+[Thanks goes to these contributors](https://github.com/cybersecurity-dev/APK-Static-Toolkit/graphs/contributors)!
+
+[🔼 Back to top](#apk-static-toolkit--android-package-kit-apk-analysing-toolkit)
