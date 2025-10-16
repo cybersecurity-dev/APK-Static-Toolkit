@@ -5,7 +5,15 @@ import glob
 import argparse
 
 import xml.etree.ElementTree as ET
-from androguard.core.apk import APK
+
+try:
+    from androguard.core.apk import APK
+except ImportError:
+    import subprocess
+    import sys
+    print("Androguard not found. Installing...")
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "androguard"])
+    from androguard.core.apk import APK
 
 def extract_native_libs_wandroguard(apk_path):
     native_libs = []
