@@ -85,6 +85,9 @@ graph TD
 
 ##
 
+### My Awesome Lists
+You can access the my other awesome lists [here](https://cyberthreatdefence.com/my_awesome_lists)
+
 ### Contributing
 
 [Contributions of any kind welcome, just follow the guidelines](contributing.md)!
