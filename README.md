@@ -1,13 +1,17 @@
-<p align="center">
-  <img width="35%" src="https://github.com/cybersecurity-dev/cybersecurity-dev/blob/main/assets/Android.svg" />
-</p>
+<div align="center">
+    <p align="center">
+        <a href="https://wikipedia.org/wiki/Apk_(file_format)">
+         <img width="35%" src="https://github.com/cybersecurity-dev/cybersecurity-dev/blob/main/assets/Android.svg" />
+        </a>
+    </p>
 
-# **[APK](https://youtube.com/playlist?list=PL9V4Zu3RroiVIEtSO4i4VLlfMJqppvxvh&si=MTyY7rk1Bu5R0ncD) Static Toolkit** | _Android Package Kit (APK) Analysing Toolkit_
+# **`APK Static Toolkit`** | _Android Package Kit (APK) Analysing Toolkit_
+</div>
 
-[![made-with-python](http://forthebadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
-[![built-for-android](https://forthebadge.com/images/badges/built-for-android.svg)](https://www.android.com/)
-[![built-with-science](https://forthebadge.com/images/badges/built-with-science.svg)](https://cyberthreatdefence.com/)
-[![open-source](https://forthebadge.com/images/badges/open-source.svg)](https://cyberthreatdefence.com/)
+[![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)]()
+[![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://youtube.com/playlist?list=PL9V4Zu3RroiVIEtSO4i4VLlfMJqppvxvh&si=MTyY7rk1Bu5R0ncD) 
+[![Reddit](https://img.shields.io/badge/Reddit-FF4500?style=for-the-badge&logo=reddit&logoColor=white)]()
+
 <p align="center">
     <a href="https://github.com/cybersecurity-dev/"><img height="25" src="https://github.com/cybersecurity-dev/cybersecurity-dev/blob/main/assets/github.svg" alt="GitHub"></a>
     &nbsp;
@@ -16,6 +20,11 @@
     <a href="https://cyberthreatdefence.com/my_awesome_lists"><img height="20" src="https://github.com/cybersecurity-dev/cybersecurity-dev/blob/main/assets/blog.svg" alt="My Awesome Lists"></a>
     <img src="https://github.com/cybersecurity-dev/cybersecurity-dev/blob/main/assets/bar.gif">
 </p>
+
+[![made-with-python](http://forthebadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+[![built-for-android](https://forthebadge.com/images/badges/built-for-android.svg)](https://www.android.com/)
+[![built-with-science](https://forthebadge.com/images/badges/built-with-science.svg)](https://cyberthreatdefence.com/)
+[![open-source](https://forthebadge.com/images/badges/open-source.svg)](https://cyberthreatdefence.com/)
 
 <details>
  
