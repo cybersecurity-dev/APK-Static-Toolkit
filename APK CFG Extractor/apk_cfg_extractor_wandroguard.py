@@ -14,6 +14,14 @@ def _require_androguard():
     if AnalyzeAPK is None:
         raise ImportError("Androguard is required for CFG.\nInstall with: pip install androguard")
 
+def save_nxgraph_to_dot(graph: nx.DiGraph, out_path: Path) -> bool:
+    try:
+        nx.drawing.nx_agraph.write_dot(graph, out_path)
+        return True
+    except Exception:
+        raise RuntimeError("DOT export requires pydot or pygraphviz.")
+    return False
+
 # -> nx.Graph | nx.DiGraph | nx.MultiGraph | nx.MultiDiGraph | None
 def apk_to_cfg(apk_path: Path) -> nx.DiGraph | None:
     _require_androguard()
