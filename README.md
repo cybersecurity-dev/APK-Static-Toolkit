@@ -44,20 +44,20 @@
  
  ### pip install
  ```bash
+ python -m venv w_apk
+ source w_apk/bin/activate
+ pip install --upgrade pip
  pip install -r requirements.txt
- python3 setup.py install
  ```
  
  ### conda install
  ```bash
  conda config --add channels conda-forge
  conda install --file requirements_conda.txt
- python3 setup.py install
  ```
  
  </details>
 
- 
 
 ```mermaid
 graph TD
