@@ -96,3 +96,8 @@ def extract_important_strings_from_apk(apk_path: Path) -> dict:
 
     # Convert sets to sorted lists
     return {key: sorted(list(value)) for key, value in results.items()}
+
+def extract_important_strings_from_apk_v2(apk_path: str, categories: List[str] = None, output_json: str = None, min_length: int = 3) -> dict:
+    output = {}
+
+return output
