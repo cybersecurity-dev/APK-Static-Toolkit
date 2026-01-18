@@ -92,6 +92,15 @@ graph TD
 </p>
 
 
+## Extraction Framework
+
+|           | Regex | Androguard | aapt | pyaxmlparser | apktool |
+| :-------- | :------: | :----: | :-: | :----: | :----: |
+| Strings Extractor   |     ☐   |   ☐    |  ☐  |   ☐   |     ☐      |      ☐      | 
+| Permission Extractor     |     ☐     |   ☐    |  ☐  |    ☐     |     ☐      |     ☐      | 
+| CFG Extractor   |    ☐    |   [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/APK%20CFG%20Extractor/apk_cfg_extractor_wandroguard.py)    |  ☐  |   ☐    |     ☐      |     ☐      | 
+| FCG Extractor   |    ☐    |   [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/APK%20FCG%20Extractor/apk_fcg_extractor_wandroguard.py)    |  ☐  |   ☐    |     ☐      |     ☐      | 
+
 ##
 
 ### My Awesome Lists
