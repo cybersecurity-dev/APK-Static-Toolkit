@@ -97,7 +97,7 @@ graph TD
 |           | Regex | Androguard | aapt | pyaxmlparser | apktool |
 | :-------- | :------: | :----: | :-: | :----: | :----: |
 | Strings Extractor   |     [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Strings%20Extractor/apk_strings_extractor.py)   |   ☐    |  ☐  |   ☐   |     ☐      |      ☐      | 
-| Permission Extractor     |     ☐     |   ☐    |  ☐  |    ☐     |     ☐      |     ☐      | 
+| Permission Extractor     |     ☐     |   [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Permission%20Extractor/apk_permission_extractor_wandroguard.py)    |  [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Permission%20Extractor/apk_permission_extractor_waapt_subprocess.py)  |    [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Permission%20Extractor/apk_permission_extractor_wpyaxmlparser.py)    |     ☐      |     ☐      | 
 | CFG Extractor   |    ☐    |   [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Graph%20based%20Feature%20Extractor/CFG%20Extractor/apk_cfg_extractor_wandroguard.py)    |  ☐  |   ☐    |     ☐      |     ☐      | 
 | FCG Extractor   |    ☐    |   [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Graph%20based%20Feature%20Extractor/FCG%20Extractor/apk_fcg_extractor_wandroguard.py)    |  ☐  |   ☐    |     ☐      |     ☐      | 
 
