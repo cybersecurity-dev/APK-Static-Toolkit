@@ -33,6 +33,7 @@ def extract_strings_from_apk(apk_path: Path, min_length: int = 5) -> List[str] |
         return None  
     return sorted(list(strings))
 
+#---------------------------------------------------------------------------------------------------------------------
 
 def extract_important_strings_from_apk(apk_path: Path) -> dict:
     patterns = {
@@ -40,9 +41,9 @@ def extract_important_strings_from_apk(apk_path: Path) -> dict:
         'ips': re.compile(r'\b(?:\d{1,3}\.){3}\d{1,3}\b'),
         'emails': re.compile(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'),
         'domains': re.compile(r'\b(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}\b'),
-        #'api_keys': re.compile(r'(?:api[_-]?key|apikey|access[_-]?token|auth[_-]?token|secret[_-]?key)[\s:=]+["\']?([a-zA-Z0-9_\-]{20,})["\']?', re.IGNORECASE),
+        'api_keys': re.compile(r'(?:api[_-]?key|apikey|access[_-]?token|auth[_-]?token|secret[_-]?key)[\s:=]+["\']?([a-zA-Z0-9_\-]{20,})["\']?', re.IGNORECASE),
         'file_paths': re.compile(r'(?:/[a-zA-Z0-9_.-]+)+/?|(?:[A-Z]:\\(?:[^\\\s]+\\)*[^\\\s]+)'),
-        #'base64': re.compile(r'(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?'),
+        'base64': re.compile(r'(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?'),
         'crypto_keys': re.compile(r'-----BEGIN [A-Z ]+-----[\s\S]+?-----END [A-Z ]+-----|MII[A-Za-z0-9+/=]{100,}')
     }
 
@@ -96,8 +97,101 @@ def extract_important_strings_from_apk(apk_path: Path) -> dict:
 
     # Convert sets to sorted lists
     return {key: sorted(list(value)) for key, value in results.items()}
+#---------------------------------------------------------------------------------------------------------------------
 
-def extract_important_strings_from_apk_v2(apk_path: str, categories: List[str] = None, output_json: str = None, min_length: int = 3) -> dict:
-    output = {}
 
-return output
+#---------------------------------------------------------
+# IMPORTANT STRING PATTERNS
+#---------------------------------------------------------
+ 
+# File path: starts with / or ./ or ../ or a Windows drive letter
+_RE_FILE_PATH = re.compile(
+    r'^(?:(?:/|\.{1,2}/)[\w./ \-]+|[a-zA-Z]:\\[\w\\.\- ]+)$'
+)
+ 
+# URL: http/https/ftp/file schemes or bare domains
+_RE_URL = re.compile(
+    r'^(?:https?|ftp|file)://[^\s"\'<>]{4,}'
+    r'|^(?:www\.)[a-zA-Z0-9\-]+\.[a-zA-Z]{2,}(?:[/\?\#][^\s]*)?$',
+    re.IGNORECASE
+)
+ 
+# IPv4 address (plain or with port)
+_RE_IP = re.compile(
+    r'^(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}'
+    r'(?:25[0-5]|2[0-4]\d|[01]?\d\d?)'
+    r'(?::\d{1,5})?$'
+)
+ 
+# IPv6 address (simplified)
+_RE_IPV6 = re.compile(
+    r'^(?:[0-9a-fA-F]{1,4}:){2,7}[0-9a-fA-F]{1,4}$'
+)
+
+# Covers PEM blocks, raw hex keys (128–512-bit), and SSH public-key blobs.
+_RE_CRYPTO_KEYS = re.compile(
+    r'-----BEGIN\s+(?:RSA |EC |DSA |OPENSSH |PGP )?(?:PRIVATE|PUBLIC) KEY-----'   # PEM header
+    r'|-----BEGIN CERTIFICATE-----'                                               # X.509 cert
+    r'|^[0-9a-fA-F]{32,128}$'                                                     # raw hex key (128–512 bit range)
+    r'|^(?:ssh-rsa|ssh-ed25519|ecdsa-sha2-nistp\d+)\s+[A-Za-z0-9+/=]{20,}',       # SSH pubkey
+    re.MULTILINE,
+)
+
+# At least 16 chars of base64 alphabet, length a multiple of 4, with ≥1 '='.
+# The second branch catches long unpadded payloads (≥32 chars, > 80 % b64 chars).
+_RE_BASE64 = re.compile(
+    r'^(?:[A-Za-z0-9+/]{4}){4,}(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$'   # padded
+    r'|^[A-Za-z0-9+/\-_]{32,}$',                                             # unpadded / URL-safe
+)
+
+# Well-known vendor prefixes followed by opaque alphanumeric tokens.
+_RE_API_KEYS = re.compile(
+    # Firebase / Google
+    r'AIza[0-9A-Za-z\-_]{35}'
+    # AWS access key ID
+    r'|(?:AKIA|ASIA|AROA|AIDA)[0-9A-Z]{16}'
+    # AWS secret access key (preceded by common label)
+    r'|(?:aws_secret|secret_key|secretKey)\s*[=:]\s*[0-9A-Za-z/+]{40}'
+    # GitHub personal access token (classic & fine-grained)
+    r'|(?:ghp|gho|ghu|ghs|ghr|github_pat)_[A-Za-z0-9_]{20,255}'
+    # Stripe live / test secret
+    r'|sk_(?:live|test)_[0-9a-zA-Z]{24,}'
+    # Slack bot / user token
+    r'|xox[baprs]-[0-9A-Za-z\-]{10,}'
+    # Twilio account SID
+    r'|AC[0-9a-f]{32}'
+    # SendGrid
+    r'|SG\.[A-Za-z0-9\-_]{22,}\.[A-Za-z0-9\-_]{43,}'
+    # Generic "Bearer <token>" or "Authorization: <token>"
+    r'|(?:Bearer|Authorization)\s+[A-Za-z0-9\-_.~+/]{20,}'
+    # Generic high-entropy tokens labelled with common key names
+    r'|(?:api[_\-]?key|auth[_\-]?token|access[_\-]?token|client[_\-]?secret)'
+     r'\s*[=:\"\']\s*[A-Za-z0-9\-_.]{16,}',
+    re.IGNORECASE,
+)
+
+# Bare hostnames / FQDNs (no scheme).  Excludes plain IPs (those hit _RE_IP).
+# Must have at least one dot, a known-length TLD (2–24 chars), optional port.
+_RE_DOMAINS = re.compile(
+    r'^(?!.*://)(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)'
+    r'+[a-zA-Z]{2,24}'
+    r'(?::\d{1,5})?$',
+)
+
+# Common Linux / shell commands (first token matches a known binary)
+_LINUX_COMMANDS = {
+    "ls", "cd", "pwd", "rm", "cp", "mv", "cat", "echo", "grep", "find",
+    "chmod", "chown", "chroot", "su", "sudo", "sh", "bash", "dash", "zsh",
+    "ps", "kill", "killall", "top", "df", "du", "mount", "umount", "dd",
+    "nc", "netcat", "curl", "wget", "ssh", "scp", "sftp", "ftp", "telnet",
+    "ping", "ifconfig", "ip", "iptables", "nmap", "tcpdump", "awk", "sed",
+    "cut", "tr", "sort", "uniq", "wc", "head", "tail", "tee", "xargs",
+    "tar", "gzip", "gunzip", "zip", "unzip", "base64", "od", "xxd",
+    "python", "python3", "perl", "ruby", "php", "node", "java",
+    "am", "pm", "dumpsys", "logcat", "adb",          # Android-specific
+}
+ 
+_RE_LINUX_CMD = re.compile(
+    r'^([a-z][a-z0-9_\-]*)(?:\s|$)', 
+    re.IGNORECASE
+)
