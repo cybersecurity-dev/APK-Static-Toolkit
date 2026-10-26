@@ -15,7 +15,7 @@
 <p align="center">
     <a href="https://github.com/cybersecurity-dev/"><img height="25" src="https://github.com/cybersecurity-dev/cybersecurity-dev/blob/main/assets/github.svg" alt="GitHub"></a>
     &nbsp;
-    <a href="https://www.youtube.com/@CyberThreatDefence"><img height="25" src="https://github.com/cybersecurity-dev/cybersecurity-dev/blob/main/assets/youtube.svg" alt="YouTube"></a>
+    <a href="https://www.youtube.com/@CyberThreatDefense"><img height="25" src="https://github.com/cybersecurity-dev/cybersecurity-dev/blob/main/assets/youtube.svg" alt="YouTube"></a>
     &nbsp;
     <a href="https://cyberthreatdefence.com/my_awesome_lists"><img height="20" src="https://github.com/cybersecurity-dev/cybersecurity-dev/blob/main/assets/blog.svg" alt="My Awesome Lists"></a>
     <img src="https://github.com/cybersecurity-dev/cybersecurity-dev/blob/main/assets/bar.gif">
@@ -94,12 +94,15 @@ graph TD
 
 ## Extraction Framework
 
-|           | Regex | Androguard | aapt | pyaxmlparser | apktool |
-| :-------- | :------: | :----: | :-: | :----: | :----: |
-| [Strings Extractor](https://github.com/cybersecurity-dev/APK-Static-Toolkit/tree/main/Strings%20Extractor)   |     [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Strings%20Extractor/apk_strings_extractor.py)   |   ☐    |  ☐  |   ☐   |     ☐      |      ☐      | 
-| [Permission Extractor](https://github.com/cybersecurity-dev/APK-Static-Toolkit/tree/main/Permission%20Extractor)     |     ☐     |   [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Permission%20Extractor/apk_permission_extractor_wandroguard.py)    |  [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Permission%20Extractor/apk_permission_extractor_waapt_subprocess.py)  |    [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Permission%20Extractor/apk_permission_extractor_wpyaxmlparser.py)    |     ☐      |     ☐      | 
-| [CFG Extractor](https://github.com/cybersecurity-dev/APK-Static-Toolkit/tree/main/Graph%20based%20Feature%20Extractor/CFG%20Extractor)   |    ☐    |   [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Graph%20based%20Feature%20Extractor/CFG%20Extractor/apk_cfg_extractor_wandroguard.py)    |  ☐  |   ☐    |     ☐      |     ☐      | 
-| [FCG Extractor](https://github.com/cybersecurity-dev/APK-Static-Toolkit/tree/main/Graph%20based%20Feature%20Extractor/FCG%20Extractor)   |    ☐    |   [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Graph%20based%20Feature%20Extractor/FCG%20Extractor/apk_fcg_extractor_wandroguard.py)    |  ☐  |   ☐    |     ☐      |     ☐      | 
+|           | Regex | [Androguard](https://github.com/androguard/androguard) | [radare2](https://github.com/radareorg/radare2) | [Joern](https://joern.io/) | [apktool](https://apktool.org/) | [aapt](https://developer.android.com/tools/aapt2) | [pyaxmlparser](https://pypi.org/project/pyaxmlparser/) |
+| :-------- | :------: | :----: | :-: | :----: | :----: | :----: | :----: |
+| [Strings Extractor](https://github.com/cybersecurity-dev/APK-Static-Toolkit/tree/main/Strings%20Extractor)   |     [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Strings%20Extractor/apk_strings_extractor.py)   |   ☐    |  ☐  |   ☐   |     ☐      |      ☐      |  ☐ |  ☐
+| [Permission Extractor](https://github.com/cybersecurity-dev/APK-Static-Toolkit/tree/main/Permission%20Extractor)     |     ☐     |   [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Permission%20Extractor/apk_permission_extractor_wandroguard.py)    |   ☐   |     ☐      |     ☐      | [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Permission%20Extractor/apk_permission_extractor_waapt_subprocess.py)  |    [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Permission%20Extractor/apk_permission_extractor_wpyaxmlparser.py)  
+| [CFG Extractor](https://github.com/cybersecurity-dev/APK-Static-Toolkit/tree/main/Graph%20based%20Feature%20Extractor/CFG%20Extractor)   |    ☐    |   [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Graph%20based%20Feature%20Extractor/CFG%20Extractor/apk_cfg_extractor_wandroguard.py)    |  ☐  |   ☐    |     ☐      |     ☐      |     ☐      |     ☐      |
+| [FCG Extractor](https://github.com/cybersecurity-dev/APK-Static-Toolkit/tree/main/Graph%20based%20Feature%20Extractor/FCG%20Extractor)   |    ☐    |   [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Graph%20based%20Feature%20Extractor/FCG%20Extractor/apk_fcg_extractor_wandroguard.py)    |  ☐  |   ☐    |     ☐      |     ☐      |    ☐      |     ☐      |
+| [AST Extractor]()   |    ☐    |   ☐    |  ☐  |   ☐    |     ☐      |     ☐      |    ☐      |     ☐      |
+| [PDG Extractor]()   |    ☐    |   ☐    |  ☐  |   ☐    |     ☐      |     ☐      |    ☐      |     ☐      |
+| [CPG Extractor]()   |    ☐    |   ☐    |  ☐  |   ✅    |     ☐      |     ☐      |    ☐      |     ☐      |
 
 ##
 
