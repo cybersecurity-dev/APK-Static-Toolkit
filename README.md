@@ -94,15 +94,11 @@ graph TD
 
 ## Extraction Framework
 
-| Extracted Feature | [Androguard](https://androguard.readthedocs.io/en/latest/) | [radare2](https://rada.re/n/) | [Ghidra](https://ghidra-sre.org/) | [angr](https://angr.io/) | [Joern](https://joern.io/) | [apktool](https://apktool.org/) | [aapt / AAPT2](https://developer.android.com/tools/aapt2) | [pyaxmlparser](https://pypi.org/project/pyaxmlparser/) | [Regex](https://wikipedia.org/wiki/Regular_expression) |
+| Extracted Feature | [Androguard](https://androguard.readthedocs.io/en/latest/) | [radare2](https://rada.re/n/) | [Ghidra](https://ghidra-sre.org/) | [angr](https://angr.io/) | [Joern](https://joern.io/) | [apktool](https://apktool.org/) | [aapt / AAPT2](https://developer.android.com/tools/aapt2) | [pyaxmlparser](https://pypi.org/project/pyaxmlparser/) | [Regex](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | String Extraction | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ | ⚠️ | ⚠️ | ✅ |
 | Permission Extraction | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ |
-| Control-Flow Graph (CFG) Extraction | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Function Call Graph (FCG) Extraction | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Abstract Syntax Tree (AST) Extraction | ⚠️ | ❌ | ✅ | ⚠️ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Program Dependence Graph (PDG) Extraction | ❌ | ❌ | ⚠️ | ⚠️ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Code Property Graph (CPG) Extraction | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+
 
 
 > - ✅ Native or directly supported
