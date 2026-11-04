@@ -98,6 +98,21 @@ graph TD
 |---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | String Extraction | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ | ⚠️ | ⚠️ | ✅ |
 | Permission Extraction | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ |
+| APK Signature and Certificate Extraction | ✅ | ❌ | ❌ | ❌ | ❌ | ⚠️ | ❌ | ✅ | ❌ |
+| Signature-Scheme Detection: v1, v2, and v3 | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| Asset Listing | ✅ | ⚠️ | ❌ | ❌ | ❌ | ✅ | ⚠️ | ⚠️ | ⚠️ |
+| Asset Extraction | ✅ | ⚠️ | ❌ | ❌ | ❌ | ✅ | ❌ | ⚠️ | ❌ |
+| Compiled Resource Table (`resources.arsc`) Parsing | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ |
+| Binary Android XML Parsing | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ |
+| Resource File Listing | ✅ | ⚠️ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ⚠️ |
+| Resource Extraction | ✅ | ⚠️ | ❌ | ❌ | ❌ | ✅ | ⚠️ | ⚠️ | ❌ |
+| Resource Identifier Extraction | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ⚠️ |
+| Resource Value Extraction | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ⚠️ |
+| Native Library Listing | ✅ | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ✅ | ⚠️ | ⚠️ | ⚠️ |
+| Native Library Extraction | ✅ | ⚠️ | ❌ | ❌ | ❌ | ✅ | ❌ | ⚠️ | ❌ |
+| Native Library Binary Analysis | ⚠️ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Supported ABI Extraction | ✅ | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ✅ | ✅ | ⚠️ | ⚠️ |
+| DEX File Listing | ✅ | ⚠️ | ❌ | ❌ | ❌ | ✅ | ⚠️ | ⚠️ | ⚠️ |
 
 
 
