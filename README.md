@@ -94,16 +94,20 @@ graph TD
 
 ## Extraction Framework
 
-|           | Regex | [Androguard](https://github.com/androguard/androguard) | [radare2](https://github.com/radareorg/radare2) | [Joern](https://joern.io/) | [apktool](https://apktool.org/) | [aapt](https://developer.android.com/tools/aapt2) | [pyaxmlparser](https://pypi.org/project/pyaxmlparser/) |
-| :-------- | :------: | :----: | :-: | :----: | :----: | :----: | :----: |
-| [Strings Extractor](https://github.com/cybersecurity-dev/APK-Static-Toolkit/tree/main/Strings%20Extractor)   |     [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Strings%20Extractor/apk_strings_extractor.py)   |   ☐    |  ☐  |   ☐   |     ☐      |      ☐      |  ☐ |  ☐
-| [Permission Extractor](https://github.com/cybersecurity-dev/APK-Static-Toolkit/tree/main/Permission%20Extractor)     |     ☐     |   [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Permission%20Extractor/apk_permission_extractor_wandroguard.py)    |   ☐   |     ☐      |     ☐      | [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Permission%20Extractor/apk_permission_extractor_waapt_subprocess.py)  |    [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Permission%20Extractor/apk_permission_extractor_wpyaxmlparser.py)  
-| [CFG Extractor](https://github.com/cybersecurity-dev/APK-Static-Toolkit/tree/main/Graph%20based%20Feature%20Extractor/CFG%20Extractor)   |    ☐    |   [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Graph%20based%20Feature%20Extractor/CFG%20Extractor/apk_cfg_extractor_wandroguard.py)    |  ☐  |   ☐    |     ☐      |     ☐      |     ☐      |     ☐      |
-| [FCG Extractor](https://github.com/cybersecurity-dev/APK-Static-Toolkit/tree/main/Graph%20based%20Feature%20Extractor/FCG%20Extractor)   |    ☐    |   [✅](https://github.com/cybersecurity-dev/APK-Static-Toolkit/blob/main/Graph%20based%20Feature%20Extractor/FCG%20Extractor/apk_fcg_extractor_wandroguard.py)    |  ☐  |   ☐    |     ☐      |     ☐      |    ☐      |     ☐      |
-| [AST Extractor]()   |    ☐    |   ☐    |  ☐  |   ☐    |     ☐      |     ☐      |    ☐      |     ☐      |
-| [PDG Extractor]()   |    ☐    |   ☐    |  ☐  |   ☐    |     ☐      |     ☐      |    ☐      |     ☐      |
-| [CPG Extractor]()   |    ☐    |   ☐    |  ☐  |   ✅    |     ☐      |     ☐      |    ☐      |     ☐      |
+| Extracted Feature | [Androguard](https://androguard.readthedocs.io/en/latest/) | [radare2](https://rada.re/n/) | [Ghidra](https://ghidra-sre.org/) | [angr](https://angr.io/) | [Joern](https://joern.io/) | [apktool](https://apktool.org/) | [aapt / AAPT2](https://developer.android.com/tools/aapt2) | [pyaxmlparser](https://pypi.org/project/pyaxmlparser/) | [Regex](https://wikipedia.org/wiki/Regular_expression) |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| String Extraction | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ | ⚠️ | ⚠️ | ✅ |
+| Permission Extraction | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ |
+| Control-Flow Graph (CFG) Extraction | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Function Call Graph (FCG) Extraction | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Abstract Syntax Tree (AST) Extraction | ⚠️ | ❌ | ✅ | ⚠️ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Program Dependence Graph (PDG) Extraction | ❌ | ❌ | ⚠️ | ⚠️ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Code Property Graph (CPG) Extraction | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 
+
+> - ✅ Native or directly supported
+> - ⚠️ Partial support, intermediate representation, or custom scripting required
+> - ❌ Not directly supported
 ##
 
 ### My Awesome Lists
