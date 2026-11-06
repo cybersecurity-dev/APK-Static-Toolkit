@@ -26,6 +26,55 @@
 [![built-with-science](https://forthebadge.com/images/badges/built-with-science.svg)](https://cyberthreatdefence.com/)
 [![open-source](https://forthebadge.com/images/badges/open-source.svg)](https://cyberthreatdefence.com/)
 
+## 📖 Contents
+- [Installation Steps](#installation-steps)
+- [My Awesome Lists](#my-awesome-lists)
+- [Contributing](#contributing)
+- [Contributors](#contributors)
+
+
+## APK Internals
+
+```mermaid
+graph TD
+    A["APK"]
+    B["Manifest<br>(AndroidManifest.xml)"]
+    C["Signatures<br>(META-INF)"]
+    D["Assets<br>(assets/)"]
+    E["Compiled resources<br>(resources.arsc)"]
+    F["Native libraries<br>(lib/)"]
+    G["Dalvik bytecode<br>(classes.dex)"]
+    H["Resources<br>(res/)"]
+    
+    A --> B
+    A --> C
+    A --> D
+    A --> E
+    A --> F
+    A --> G
+    A --> H
+```
+
+**Explanation of the components:**
+
+* **Manifest (AndroidManifest.xml):** Contains essential information about the application, such as its package name, components (activities, services, etc.), permissions, and hardware/software requirements.
+* **Signatures (META-INF/):** Directory containing the signature files used to verify the integrity and authenticity of the APK.
+* **Assets (assets/):** Directory containing application assets, such as raw data files, that are not compiled into resources.
+* **Compiled resources (resources.arsc):** A compiled resource file that indexes and contains all the non-code resources of the application (e.g., strings, layouts, drawables).
+* **Native libraries (lib/):** Directory containing compiled code that is specific to a particular device's processor architecture (e.g., .so files).
+* **Dalvik bytecode (classes.dex):** Contains the compiled Java code of the application, optimized for the Dalvik or ART (Android Runtime) virtual machine.
+* **Resources (res/):** Directory containing the application's resources, such as layouts, drawables (images), strings, and values (colors, dimensions, etc.). These resources are typically compiled into `resources.arsc`.
+
+<p align="center" href="https://www.android.com/"> 
+    <a href="https://www.android.com/">
+        <picture>
+            <img width="50%" height="auto" src="https://github.com/cybersecurity-dev/cybersecurity-dev/blob/main/assets/apk.svg" height="175px" alt="APK"/>
+        </picture>
+    </a>
+</p>
+
+## Installation Steps
+
 <details>
  
  <summary>Install required tools on Linux</summary>
@@ -58,40 +107,6 @@
  
  </details>
 
-
-```mermaid
-graph TD
-    A["APK"]
-    B["Manifest<br>(AndroidManifest.xml)"]
-    C["Signatures<br>(META-INF)"]
-    D["Assets<br>(assets/)"]
-    E["Compiled resources<br>(resources.arsc)"]
-    F["Native libraries<br>(lib/)"]
-    G["Dalvik bytecode<br>(classes.dex)"]
-    H["Resources<br>(res/)"]
-    
-    A --> B
-    A --> C
-    A --> D
-    A --> E
-    A --> F
-    A --> G
-    A --> H
-```
-**Explanation of the components:**
-
-* **Manifest (AndroidManifest.xml):** Contains essential information about the application, such as its package name, components (activities, services, etc.), permissions, and hardware/software requirements.
-* **Signatures (META-INF/):** Directory containing the signature files used to verify the integrity and authenticity of the APK.
-* **Assets (assets/):** Directory containing application assets, such as raw data files, that are not compiled into resources.
-* **Compiled resources (resources.arsc):** A compiled resource file that indexes and contains all the non-code resources of the application (e.g., strings, layouts, drawables).
-* **Native libraries (lib/):** Directory containing compiled code that is specific to a particular device's processor architecture (e.g., .so files).
-* **Dalvik bytecode (classes.dex):** Contains the compiled Java code of the application, optimized for the Dalvik or ART (Android Runtime) virtual machine.
-* **Resources (res/):** Directory containing the application's resources, such as layouts, drawables (images), strings, and values (colors, dimensions, etc.). These resources are typically compiled into `resources.arsc`.
-<p align="center" href="https://www.android.com/"> 
-<a href="https://www.android.com/"><picture><img width="50%" height="auto" src="https://github.com/cybersecurity-dev/cybersecurity-dev/blob/main/assets/apk.svg" height="175px" alt="APK"/></picture></a>
-</p>
-
-
 ## Extraction Framework
 
 | Extracted Feature | [Androguard](https://androguard.readthedocs.io/en/latest/) | [radare2](https://rada.re/n/) | [Ghidra](https://ghidra-sre.org/) | [angr](https://angr.io/) | [Joern](https://joern.io/) | [apktool](https://apktool.org/) | [aapt / AAPT2](https://developer.android.com/tools/aapt2) | [pyaxmlparser](https://pypi.org/project/pyaxmlparser/) | [Regex](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) |
@@ -119,6 +134,7 @@ graph TD
 > - ✅ Native or directly supported
 > - ⚠️ Partial support, intermediate representation, or custom scripting required
 > - ❌ Not directly supported
+
 ##
 
 ### My Awesome Lists
